@@ -11,14 +11,14 @@ const header = {
           <ul class="ul">
           ${menuList1.map((post) =>`
             <li class="menu_link"><a href="/${post.link}"> ${post.name}</a></li>
-            `).join("")};
+            `).join("")}
           </ul>
           <form action="" class="form">
             <input type="text" class="input">
             <button class="btn">Tìm kiếm</button>
           </form>
         </div> 
-      `;
+      `
 
     },
 };
