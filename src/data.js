@@ -8,16 +8,16 @@ export const menuList1 = [
     link: "about"
   },
   {
-    name: "Chương trình đào tạo",
-    link: ""
+    name: "Signup",
+    link: "Signup"
   },
   {
-    name: "Tuyển sinh",
-    link: ""
+    name: "Signin",
+    link: "Signin"
   },
   {
-    name: "Tuyển dụng",
-    link: ""
+    name: "Admin",
+    link: "admin"
   },
 
 ];

@@ -11,7 +11,6 @@ const HomePage = {
         ${Banner.print()}
         
         ${NewsList.print()}
-        ${NewsList.print()}
 
         ${footer.print()}
         
