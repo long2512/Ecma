@@ -2,7 +2,7 @@ export const footer = {
     print(){
         return `
         <footer>
-            <span>Long Đẹp Zai</span>
+            <span>Tên sinh viên</span>
         </footer>
         `;
     }

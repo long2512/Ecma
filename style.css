@@ -27,14 +27,24 @@ h2{
     @apply  uppercase py-3 text-[#272f54] font-bold ;
 }
 .row{
-    @apply grid grid-cols-3 gap-5  mb-5;
+    @apply grid grid-cols-3 gap-5 mb-5;
 }
 .col{
     @apply border border-inherit p-4 text-left ;
 }
 footer{
-    @apply bg-[#272f54] p-3 text-center;
+    @apply bg-[#272f54] p-3 text-center mt-4;
 }
 span{
     @apply  text-[#fff];
 }
+h4{
+    @apply uppercase text-[#c97802] py-2 font-medium;
+}
+.img{
+    @apply  mt-4;
+}
+h1{
+    @apply uppercase py-3 text-[#272f54] font-bold;
+}
+
