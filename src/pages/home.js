@@ -4,13 +4,13 @@ import header from "../component/header";
 import NewsList from "../component/newList";
 
 const HomePage = {
-    async print() {
+    print() {
         return `
         <header>${header.print()}</header>
         
         ${Banner.print()}
         
-        ${await NewsList.print()}
+        ${NewsList.print()}
 
         ${footer.print()}
         

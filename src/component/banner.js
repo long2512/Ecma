@@ -1,9 +1,9 @@
 const Banner = {
     print() {
         return /* html */`
-        <div class="banner mt-3">
-            <img src="https://picsum.photos/2025/500" alt="" class="m-auto">
-        </div>
+            <div>
+                <img src="https://tunem.vn/wp-content/uploads/2019/05/banner-noel.jpg" width="100%" alt="">
+            </div>
         `;
     },
 };

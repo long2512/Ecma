@@ -1,61 +1,89 @@
 export const menuList1 = [
   {
-    name: "Trang chủ",
+    name: "Home",
     link: ""
   },
   {
-    name: "Giới thiệu",
+    name: "About",
     link: "about"
   },
   {
-    name: "Signup",
-    link: "Signup"
+    name: "Products",
+    link: "products"
   },
   {
-    name: "Signin",
-    link: "Signin"
+    name: "Blog",
+    link: "blog"
   },
   {
-    name: "Admin",
-    link: "admin"
+    name: "Contact",
+    link: "contact"
+  },
+  {
+    name: "Login",
+    link: "login"
+  },
+  {
+    name: "Register",
+    link: "register"
   },
 
 ];
 export const postLisst = [
   {
     id:"1",
-    img: "http://picsum.photos/300/200",
-    title: "Vinh danh 295 sinh viên Fpoly học kỳ Spring 2018",
-    text: "Với sự tham gia của các của rất trong các chuyên gia trong nhiều lĩnh vực ,kinh doanh,chương trình đã thu hút đông đảo sinh viên Fpoy tham dự"
+    img: "https://thegioisofa.com/wp-content/uploads/2021/04/vie-black-5-scaled-350x263.jpg",
+    title: "Bộ bàn ăn mặt đá",
+    newprice: "$45.00",
+    oldprice: "$55.00"
   },
   {
     id:"2",
-    img: "http://picsum.photos/300/200",
-    title: "Vinh danh 295 sinh viên Fpoly học kỳ Spring 2018",
-    text: "Với sự tham gia của các của rất trong các chuyên gia trong nhiều lĩnh vực ,kinh doanh,chương trình đã thu hút đông đảo sinh viên Fpoy tham dự"
+    img: "https://thegioisofa.com/wp-content/uploads/2021/04/vie-black-5-scaled-350x263.jpg",
+    title: "Bộ bàn ăn mặt đá",
+    newprice: "$45.00",
+    oldprice: "$55.00"
   },
   {
     id:"3",
-    img: "http://picsum.photos/300/200",
-    title: "Vinh danh 295 sinh viên Fpoly học kỳ Spring 2018",
-    text: "Với sự tham gia của các của rất trong các chuyên gia trong nhiều lĩnh vực ,kinh doanh,chương trình đã thu hút đông đảo sinh viên Fpoy tham dự"
+    img: "https://thegioisofa.com/wp-content/uploads/2021/04/vie-black-5-scaled-350x263.jpg",
+    title: "Bộ bàn ăn mặt đá",
+    newprice: "$45.00",
+    oldprice: "$55.00"
   },
   {
     id:"4",
-    img: "http://picsum.photos/300/200",
-    title: "Vinh danh 295 sinh viên Fpoly học kỳ Spring 2018",
-    text: "Với sự tham gia của các của rất trong các chuyên gia trong nhiều lĩnh vực ,kinh doanh,chương trình đã thu hút đông đảo sinh viên Fpoy tham dự"
+    img: "https://thegioisofa.com/wp-content/uploads/2021/04/vie-black-5-scaled-350x263.jpg",
+    title: "Bộ bàn ăn mặt đá",
+    newprice: "$45.00",
+    oldprice: "$55.00"
   },
   {
     id:"5",
-    img: "http://picsum.photos/300/200",
-    title: "Vinh danh 295 sinh viên Fpoly học kỳ Spring 2018",
-    text: "Với sự tham gia của các của rất trong các chuyên gia trong nhiều lĩnh vực ,kinh doanh,chương trình đã thu hút đông đảo sinh viên Fpoy tham dự"
+    img: "https://thegioisofa.com/wp-content/uploads/2021/04/vie-black-5-scaled-350x263.jpg",
+    title: "Bộ bàn ăn mặt đá",
+    newprice: "$45.00",
+    oldprice: "$55.00"
   },
   {
     id:"6",
-    img: "http://picsum.photos/300/200",
-    title: "Vinh danh 295 sinh viên Fpoly học kỳ Spring 2018",
-    text: "Với sự tham gia của các của rất trong các chuyên gia trong nhiều lĩnh vực ,kinh doanh,chương trình đã thu hút đông đảo sinh viên Fpoy tham dự"
-  }
+    img: "https://thegioisofa.com/wp-content/uploads/2021/04/vie-black-5-scaled-350x263.jpg",
+    title: "Bộ bàn ăn mặt đá",
+    newprice: "$45.00",
+    oldprice: "$55.00"
+  },
+  {
+    id:"7",
+    img: "https://thegioisofa.com/wp-content/uploads/2021/04/vie-black-5-scaled-350x263.jpg",
+    title: "Bộ bàn ăn mặt đá",
+    newprice: "$45.00",
+    oldprice: "$55.00"
+  },
+  {
+    id:"8",
+    img: "https://thegioisofa.com/wp-content/uploads/2021/04/vie-black-5-scaled-350x263.jpg",
+    title: "Bộ bàn ăn mặt đá",
+    newprice: "$45.00",
+    oldprice: "$55.00"
+  },
 ];

@@ -3,21 +3,19 @@ import { menuList1 } from "../data";
 
 const header = {
     print() {
-        return /*html*/`
-        <div class="bg-[#272f54] py-3">
-          <img src="https://picsum.photos/100/50" alt="" class="m-auto">
-        </div>
-        <div class="bg-[#c97802] flex">
-          <ul class="mx-8 my-3 flex">
-          ${menuList1.map((post) =>`
-            <li class="menu_link hover:bg-cyan-500 mx-4 text-white"><a href="/${post.link}"> ${post.name}</a></li>
-            `).join("")}
-          </ul>
-          <form action="" class="my-3 ml-40">
-            <input type="text" class="w-52 outline-none">
-            <button class="bg-[#272f54] text-[#fff] border-[#fff] border w-24">Tìm kiếm</button>
-          </form>
-        </div> 
+      return /*html */`
+      <header class="flex flex-nowrap justify-between bg-slate-100">
+      <div class="px-5 py-5">
+        <a href=""><img src="http://3.bp.blogspot.com/-q-W4fEE2W-s/T13S1Jv26II/AAAAAAAAC8c/xApJx0SwxRA/w1200-h630-p-k-no-nu/aaa.png" class="w-64" alt=""></a>
+      </div>
+      <div>
+        <ul class="flex pt-5">${menuList1.map((post) =>`
+        <li class="pt-8 text-2xl pl-3 font-mono font-bold pr-10 hover:text-red-500"><a href="/${post.link}">${post.name}</a></li>
+        `).join("")}
+        </ul>
+      </div>
+      
+  </header>
       `
 
     },
