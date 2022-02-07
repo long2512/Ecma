@@ -11,39 +11,39 @@ import AddNews from "./component/addNews";
 
 
 const router = new Navigo("/",{linksSelector:"a"});
-const render = (content) =>{
-    document.querySelector("#app").innerHTML=content;
+const render = async (content,id) =>{
+    document.querySelector("#app").innerHTML=await content.print(id);
 }
 
 router.on({
     "/": () => {
-        render(HomePage.print());
+        render(HomePage);
     },
     "/about": () => {
-        render(AboutPage.print());
+        render(AboutPage);
     },
     "/Signin": () =>{
-        render(Signin.print());
+        render(Signin);
     },
     "/Signup": () =>{
-        render(Signup.print());
+        render(Signup);
     },
     "/news": () => {
-        render(NewPage.print());
+        render(NewPage);
     },
     "/admin": () => {
-        render(Admin.print());
+        render(Admin);
     },
     "/addNews": () => {
-        render(AddNews.print());
+        render(AddNews);
     },
-    "/editNews/:id": ({data}) => {
-        const { id } = data;
-        render(EditNews.print(id));
+    "/editNews/:id": (data) => {
+        // const { id } = data;
+        render(EditNews , data.data.id);
     },
-    "/news/:id": ({ data }) => {
-        const { id } = data;
-        render(DetailNewPage.print(id));
+    "/news/:id": ( data ) => {
+        // const { id } = data;
+        render(DetailNewPage,data.data.id);
     },
 })
 
