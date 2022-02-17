@@ -1,20 +1,23 @@
 import Banner from "../component/banner";
 import footer from "../component/footer";
 import header from "../component/header";
-import NewsList from "../component/newList";
+import NewsList from "../component/productsList";
 
 const HomePage = {
-    print() {
+    async print() {
         return `
-        <header>${header.print()}</header>
+        <header id="header">${header.print()}</header>
         
         ${Banner.print()}
         
-        ${NewsList.print()}
+        ${ await NewsList.print()}
 
         ${footer.print()}
         
         `;
     },
+    afterRender(){
+        header.afterRender();
+    }
 };
 export default HomePage;

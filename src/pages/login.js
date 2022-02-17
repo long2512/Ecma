@@ -1,7 +1,10 @@
 import footer from "../component/footer";
 import header from "../component/header";
+import toastr from "toastr";
+import "toastr/build/toastr.min.css";
+import { signin } from "../api/user";
 
-const Signin = {
+const Login = {
     print(){
         return/*html*/`
         <header>${header.print()}</header>
@@ -18,12 +21,11 @@ const Signin = {
               </a>
             </p>
           </div>
-          <form class="mt-8 space-y-6" action="#" method="POST">
-            <input type="hidden" name="remember" value="true">
+          <form class="mt-8 space-y-6" id="formSignin" method="POST">
             <div class="rounded-md shadow-sm -space-y-px">
               <div>
                 <label for="email-address" class="sr-only">Email address</label>
-                <input id="email-address" name="email" type="email" autocomplete="email" required class="ii" placeholder="Email address">
+                <input id="email" name="email" type="email" autocomplete="email" required class="ii" placeholder="Email address">
               </div>
               <div>
                 <label for="password" class="sr-only">Password</label>
@@ -61,6 +63,33 @@ const Signin = {
       </div>
       ${footer.print()}
         `;
-    }
+    },
+    afterRender() {
+      const formSignin = document.querySelector("#formSignin");
+      formSignin.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        try {
+            // call api
+          const { data } = await signin({
+              email: document.querySelector("#email").value,
+              password: document.querySelector("#password").value,
+          });
+          localStorage.setItem('user', JSON.stringify(data.user))
+          // if(data.user.id == 1){
+          //     document.location.href="/"
+          // } else {
+          //     document.location.href="/"
+          // }
+          setTimeout(() => {
+            document.location.href="/";
+          },2000)
+
+          toastr.success("Đăng nhập thành công");
+        } catch (error) {
+          toastr.error(error.response.data);
+        }
+        
+      });
+    },
 }
-export default Signin;
+export default Login;

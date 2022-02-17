@@ -1,7 +1,8 @@
+import { signup } from "../api/user";
 import footer from "../component/footer";
 import header from "../component/header";
 
-const Signup = {
+const Register = {
     print(){
         return /*html*/`
         <header>${header.print()}</header>
@@ -12,16 +13,19 @@ const Signup = {
               Sign up
             </h2>
           </div>
-          <form class="mt-8 space-y-6" action="#" method="POST">
-            <input type="hidden" name="remember" value="true">
+          <form class="mt-8 space-y-6" id="formSignup" >
             <div class="rounded-md shadow-sm -space-y-px">
               <div>
+                  <label for="" class="sr-only">User Name</label>
+                  <input id="username" type="text" class="ii" placeholder="User name">
+              </div>
+              <div>
                 <label for="email-address" class="sr-only">Email address</label>
-                <input id="email-address" name="email" type="email" autocomplete="email" required class="ii" placeholder="Email address">
+                <input id="email" type="email" autocomplete="email" class="ii" placeholder="Email address">
               </div>
               <div>
                 <label for="password" class="sr-only">Password</label>
-                <input id="password" name="password" type="password" autocomplete="current-password" required class="ii" placeholder="Password">
+                <input id="password"  type="password" autocomplete="current-password" class="ii" placeholder="Password">
               </div>
             </div>
       
@@ -55,6 +59,22 @@ const Signup = {
       </div>
       ${footer.print()}
         `;
-    }
-}
-export default Signup;
+    },
+
+    afterRender() {
+      const signUp = document.querySelector("#formSignup");
+      signUp.addEventListener("submit", (e) => {
+        console.log(e);
+        e.preventDefault();
+        
+        // call api
+        signup({
+          username: document.querySelector("#username").value,
+          email: document.querySelector("#email").value,
+          password: document.querySelector("#password").value,
+        }).then(res => window.location.href="/");
+        
+      });
+    },
+  };
+export default Register;

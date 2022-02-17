@@ -1,4 +1,4 @@
-import NewsList from "../component/newList";
+import NewsList from "../component/productsList";
 
 const NewPage = {
     print(){

@@ -34,7 +34,7 @@ export const footer = {
           </div>
           <div class="col mt-10">
             <h3 class="font-mono text-2xl font-bold mb-5 text-white">Subscribe Our Newsletter</h3>
-            <li class="list-none text-white">If you want to get an email from us every time we have a new special offer, then sign up here!</li>
+            <li class="list-none text-white mr-28">If you want to get an email from us every time we have a new special offer, then sign up here!</li>
             
         </div>
     </footer>
