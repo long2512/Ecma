@@ -14,13 +14,13 @@ const header = {
           <ul class="flex pt-5" id="menu">
             <li class="pt-8 text-2xl pl-3 font-mono font-bold pr-10 hover:text-red-500"><a href="/">Home</a></li>
             <li class="pt-8 text-2xl pl-3 font-mono font-bold pr-10 hover:text-red-500"><a href="/about">About</a></li>
-            <li class="pt-8 text-2xl pl-3 font-mono font-bold pr-10 hover:text-red-500"><a href="/products">Products</a></li>
+            <li class="pt-8 text-2xl pl-3 font-mono font-bold pr-10 hover:text-red-500"><a href="/post">Post</a></li>
             <li class="pt-8 text-2xl pl-3 font-mono font-bold pr-10 hover:text-red-500">Xin chào :<span id="username"></span></li>
             <li class="pt-8 text-2xl pl-3 font-mono font-bold pr-10 hover:text-red-500" id="logout" class="cursor-pointer">Logout</li>
           </ul>`: `<ul class="flex pt-5">
           <li class="pt-8 text-2xl pl-3 font-mono font-bold pr-10 hover:text-red-500"><a href="/">Home</a></li>
           <li class="pt-8 text-2xl pl-3 font-mono font-bold pr-10 hover:text-red-500"><a href="/about">About</a></li>
-          <li class="pt-8 text-2xl pl-3 font-mono font-bold pr-10 hover:text-red-500"><a href="/products">Products</a></li>
+          <li class="pt-8 text-2xl pl-3 font-mono font-bold pr-10 hover:text-red-500"><a href="/post">Post</a></li>
         </ul>`}
         </div>
         <div>
@@ -44,7 +44,7 @@ const header = {
           document.querySelector('#menu').innerHTML=`<ul class="flex pt-5" id="menu">
           <li class="pt-8 text-2xl pl-3 font-mono font-bold pr-10 hover:text-red-500"><a href="/">Home</a></li>
           <li class="pt-8 text-2xl pl-3 font-mono font-bold pr-10 hover:text-red-500"><a href="/about">About</a></li>
-          <li class="pt-8 text-2xl pl-3 font-mono font-bold pr-10 hover:text-red-500"><a href="/products">Products</a></li>
+          <li class="pt-8 text-2xl pl-3 font-mono font-bold pr-10 hover:text-red-500"><a href="/post">Post</a></li>
           <li class="pt-8 text-2xl pl-3 font-mono font-bold pr-10 hover:text-red-500"><a href="/admin">Admin</a></li>
           <li class="pt-8 text-2xl pl-3 font-mono font-bold pr-10 hover:text-red-500">Xin chào :<span id="username"></span></li>
           <li class="pt-8 text-2xl pl-3 font-mono font-bold pr-10 hover:text-red-500" id="logout" class="cursor-pointer">Logout</li>

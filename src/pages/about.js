@@ -13,5 +13,8 @@ const AboutPage = {
         ${footer.print()}
         `
     },
+    afterRender(){
+        header.afterRender();
+    }
 };
 export default AboutPage;

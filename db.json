@@ -70,5 +70,19 @@
       "username": "long1233",
       "id": 2
     }
+  ],
+  "posts": [
+    {
+      "title": "Bộ bàn ăn mặt đá",
+      "img": "https://res.cloudinary.com/builong/image/upload/v1645279545/gh6wewicmewbp3dugqso.jpg",
+      "des": "Ngay từ cái nhìn đầu tiên mẫu sofa băng Morelos đã gây ấn tượng với người dùng bởi các đường nét hoàn hảo. ",
+      "id": 3
+    },
+    {
+      "title": "Bàn ăn nhật bản",
+      "img": "https://res.cloudinary.com/builong/image/upload/v1645279590/hvfabmf3hgbbpljapw6i.jpg",
+      "des": "Ngay từ cái nhìn đầu tiên mẫu sofa băng Morelos đã gây ấn tượng với người dùng bởi các đường nét hoàn hảo. ",
+      "id": 4
+    }
   ]
 }

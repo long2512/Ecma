@@ -9,6 +9,10 @@ import AddNews from "./component/addProducts";
 import Login from "./pages/login";
 import Register from "./pages/register";
 import listproducts from "./pages/listproducts";
+import listPost from "./pages/listPost";
+import postPage from "./pages/post";
+import AddPosts from "./component/addPosts";
+import EditPost from "./component/editPost";
 
 
 const router = new Navigo("/",{linksSelector:"a"});
@@ -26,6 +30,9 @@ router.on({
     "/about": () => {
         render(AboutPage);
     },
+    "/post": () => {
+        render(postPage);
+    },
     "/login": () =>{
         render(Login);
     },
@@ -38,6 +45,12 @@ router.on({
     "/listproducts": () => {
         render(listproducts);
     },
+    "/listPost": () => {
+        render(listPost);
+    },
+    "/addPosts": () => {
+        render(AddPosts);
+    },
     "/admin": () => {
         render(Admin);
     },
@@ -47,6 +60,10 @@ router.on({
     "/editProducts/:id": (data) => {
         // const { id } = data;
         render(EditNews , data.data.id);
+    },
+    "/editPost/:id": (data) => {
+        // const { id } = data;
+        render(EditPost , data.data.id);
     },
     "/news/:id": ( data ) => {
         // const { id } = data;
