@@ -1,5 +1,7 @@
 import axios from "axios";
 import { add } from "../api/posts";
+import $ from 'jquery';
+import validate from 'jquery-validation';
 
 const AddPosts = {
     print(){
@@ -42,11 +44,13 @@ const AddPosts = {
                     
                     <div class="col-span-6 sm:col-span-4">
                         <label  class="block text-sm font-medium text-gray-700">Title</label>
-                        <input type="text" id="title-post" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border rounded-md p-2">
+                        <input type="text" id="title-post" name="title-post" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border rounded-md p-2">
                     </div>
                     <div class="col-span-6 sm:col-span-4">
                         <label  class="block text-sm font-medium text-gray-700">Image</label>
                         <input type="file" id="img-post" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border rounded-md p-2">
+                    </div>
+                    <div><img width="200" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/832px-No-Image-Placeholder.svg.png" id="previewImage" /></div>
                     </div>
 
                     <div class="col-span-6 sm:col-span-4">
@@ -71,35 +75,54 @@ const AddPosts = {
         `;
     },
     afterRender() {
-      const formAdd = document.querySelector("#form-add-post");
       const imgPost = document.querySelector("#img-post");
+      const imgPreview = document.querySelector("#previewImage");
   
-      imgPost.addEventListener("change", (e) => {
-        const file = e.target.files[0];
-        const formData = new FormData();
-        formData.append("file", file);
-        formData.append("upload_preset", "hjpfbmrh");
-  
-        axios({
-          url: "https://api.cloudinary.com/v1_1/builong/image/upload",
-          method: "POST",
-          headers: {
-            "Content-Type": "application/x-www-formendcoded",
+      imgPost.addEventListener("change", () => {
+        imgPreview.src = URL.createObjectURL(imgPost.files[0]);
+      });
+        $("#form-add-post").validate({
+          rules: {
+              "title-post" : {
+                required: true,
+                minlength: 10,
+              }
           },
-          data: formData,
-        }).then((res) => {
-          formAdd.addEventListener("submit", (e) => {
-            e.preventDefault();
+          messages:{
+            "title-post" : {
+              required: "Nhap tieu de vao em ei",
+              minlength: "Tieu de phai it nhat 10 ky tu"
+            }
+          },
+          submitHandler: (form) =>{
+             async function formHandler() {
+              const file = imgPost.files[0];
+              const formData = new FormData();
+              formData.append("file", file);
+              formData.append("upload_preset", "hjpfbmrh");
+    
+              const { data } = await axios({
+              url: "https://api.cloudinary.com/v1_1/builong/image/upload",
+              method: "POST",
+              headers: {
+                "Content-Type": "application/x-www-formendcoded",
+              },
+              data: formData,
+            })
             add({
               title: document.querySelector("#title-post").value,
-              img: res.data.secure_url,
+              img: data.secure_url,
               des: document.querySelector("#des").value
             })
-              .then(() => document.location.href="/listPost")
-              .catch((error) => console.log(error));
-          });
-        });
-      });
-    },
-}
+            .then(() => document.location.href="/listPost")
+            .catch((error) => console.log(error));
+            
+            form.reset();
+          } 
+          formHandler();
+      }
+    });
+  },
+};
+
 export default AddPosts;

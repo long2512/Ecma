@@ -1,6 +1,7 @@
 
 // import { postLisst } from "../data";
 
+import axios from "axios";
 import { get, update } from "../api/posts";
 
 const EditPost = {
@@ -42,7 +43,8 @@ const EditPost = {
         <tbody class="bg-white divide-y divide-gray-200">
         <tr>
             <td class="px-6 py-4 whitespace-nowrap">
-              <input type="file" value="${data.img}" id="image"/>
+              <input type="file" id="image"/>
+              <div><img width="200" src="${data.img}" id="previewImage" /></div>
             </td>
             <td class="px-6 py-4 whitespace-nowrap">
               <input type="text" value="${data.title}" id="title"/>
@@ -65,10 +67,34 @@ const EditPost = {
     },
     afterRender(id){
         const formEdit = document.querySelector('#form-edit');
-        formEdit.addEventListener('submit' ,(e) => {
+        const imgPost = document.querySelector("#image");
+        const imgPreview = document.querySelector("#previewImage");
+        let imgUploadedLink = "";
+        imgPost.addEventListener('change', (e) => {
+          imgPreview.src = URL.createObjectURL(imgPost.files[0])
+        });
+        formEdit.addEventListener('submit' , async (e) => {
           e.preventDefault();
+          const file = imgPost.files[0];
+
+          if(file){
+            const formData = new FormData();
+            formData.append("file",file);
+            formData.append("upload_preset", "hjpfbmrh");
+            const { data } = await axios({
+              url: "https://api.cloudinary.com/v1_1/builong/image/upload",
+              method: "POST",
+              headers: {
+                "Content-Type": "application/x-www-formendcoded",
+              },
+              data: formData,
+            });
+            imgUploadedLink = data.url
+          }
+
           update({
             id, title: document.querySelector('#title').value,
+                img: imgUploadedLink ? imgUploadedLink : imgPreview.src,
                 des: document.querySelector('#des').value
                 
           })

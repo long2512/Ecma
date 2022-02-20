@@ -1,5 +1,7 @@
 import axios from "axios";
 import { add } from "../api/products";
+import $ from 'jquery';
+import validate from 'jquery-validation';
 
 const AddNews = {
     print(){
@@ -35,28 +37,31 @@ const AddNews = {
       <div class="mt-10 sm:mt-0">
         <div class="md:grid md:grid-cols-3 md:gap-6">
           <div class="mt-5 md:mt-0 md:col-span-2">
-            <form  method="POST" id="form-add-post">
+            <form  method="POST" id="form-add-products">
               <div class="shadow overflow-hidden sm:rounded-md">
                 <div class="px-4 py-5 bg-white sm:p-6">
                   <div class="grid grid-cols-6 gap-6">
                     
                     <div class="col-span-6 sm:col-span-4">
                         <label  class="block text-sm font-medium text-gray-700">Title</label>
-                        <input type="text" id="title-post" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border rounded-md p-2">
+                        <input type="text" id="title-products" name="title-products" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border rounded-md p-2">
                     </div>
                     <div class="col-span-6 sm:col-span-4">
                         <label  class="block text-sm font-medium text-gray-700">Image</label>
-                        <input type="file" id="img-post" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border rounded-md p-2">
+                        <input type="file" id="img-products" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border rounded-md p-2">
+                        <div><img width="200" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/832px-No-Image-Placeholder.svg.png" id="previewImage" /></div>
                     </div>
+                    </div>
+
 
                     <div class="col-span-6 sm:col-span-4">
                       <label class="block text-sm font-medium text-gray-700">Newsprice</label>
-                      <input type="text" id="newprice" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border rounded-md p-2">
+                      <input type="text" id="newprice" name="newprice" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border rounded-md p-2">
                     </div>
 
                     <div class="col-span-6 sm:col-span-4">
                       <label class="block text-sm font-medium text-gray-700">Oldsprice</label>
-                      <input type="text" id="oldprice" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border rounded-md p-2">
+                      <input type="text" id="oldprice" name="oldprice" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border rounded-md p-2">
                     </div>
       
                   </div>
@@ -76,35 +81,63 @@ const AddNews = {
         `;
     },
     afterRender() {
-      const formAdd = document.querySelector("#form-add-post");
-      const imgPost = document.querySelector("#img-post");
-  
-      imgPost.addEventListener("change", (e) => {
-        const file = e.target.files[0];
-        const formData = new FormData();
-        formData.append("file", file);
-        formData.append("upload_preset", "hjpfbmrh");
-  
-        axios({
-          url: "https://api.cloudinary.com/v1_1/builong/image/upload",
-          method: "POST",
-          headers: {
-            "Content-Type": "application/x-www-formendcoded",
+      const imgPost = document.querySelector("#img-products");
+      const imgPreview = document.querySelector("#previewImage");
+
+      imgPost.addEventListener("change", () => {
+        imgPreview.src = URL.createObjectURL(imgPost.files[0]);
+      });
+      $("#form-add-products").validate({
+        rules: {
+          "title-products" :{
+            required: true,
+            minlength:10,
           },
-          data: formData,
-        }).then((res) => {
-          formAdd.addEventListener("submit", (e) => {
-            e.preventDefault();
+          "newprice" :{
+            required: true,
+          },
+          "oldprice" :{
+            required: true,
+          }
+        },
+        messages:{
+          "title-products" : {
+            required: "Nhập tiêu đề em ơi",
+            minlength: "Tiêu đề phải đủ 10 kí tự"
+          },
+          "newprice" :{
+            required: "Nhập giá mới em ơi",
+          },
+          "oldprice" :{
+            required: "Nhập giá cũ em ơi",
+          },
+        },
+        submitHandler: (form) => {
+          async function formHandler(){
+            const file = imgPost.files[0];
+            const formData = new FormData();
+            formData.append("file", file);
+            formData.append("upload_preset", "hjpfbmrh");
+            const { data } = await axios ({
+              url: "https://api.cloudinary.com/v1_1/builong/image/upload",
+              method: "POST",
+              headers: {
+                "Content-Type": "application/x-www-formendcoded",
+              },
+              data: formData,
+            })
             add({
               title: document.querySelector("#title-post").value,
-              img: res.data.secure_url,
+              img: data.secure_url,
               newprice: document.querySelector("#newprice").value,
               oldprice: document.querySelector("#oldprice").value,
             })
-              .then(() => document.location.href="/admin" )
+              .then(() => document.location.href="/listproducts" )
               .catch((error) => console.log(error));
-          });
-        });
+              form.reset();
+          }
+          formHandler();
+        }
       });
     },
 }

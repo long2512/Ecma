@@ -42,7 +42,8 @@ const EditNews = {
         <tbody class="bg-white divide-y divide-gray-200">
         <tr>
             <td class="px-6 py-4 whitespace-nowrap">
-              <input type="file" value="${data.img}" id="image"/>
+              <input type="file" id="image"/>
+              <div><img width="200" src="${data.img}" id="previewImage" /></div>
             </td>
             <td class="px-6 py-4 whitespace-nowrap">
               <input type="text" value="${data.title}" id="title"/>
