@@ -127,7 +127,7 @@ const AddNews = {
               data: formData,
             })
             add({
-              title: document.querySelector("#title-post").value,
+              title: document.querySelector("#title-products").value,
               img: data.secure_url,
               newprice: document.querySelector("#newprice").value,
               oldprice: document.querySelector("#oldprice").value,

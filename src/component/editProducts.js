@@ -1,7 +1,8 @@
 
 // import { postLisst } from "../data";
 
-import { get, update } from "../api/posts";
+import { get, update } from "../api/products";
+
 
 const EditNews = {
     async print(id){
@@ -49,7 +50,10 @@ const EditNews = {
               <input type="text" value="${data.title}" id="title"/>
             </td>
             <td class="px-6 py-4 whitespace-nowrap">
-              <input type="text" value="${data.des}" id="des"/>
+              <input type="text" value="${data.newprice}" id="new"/>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap">
+              <input type="text" value="${data.oldprice}" id="old"/>
             </td>
 
             
@@ -67,14 +71,37 @@ const EditNews = {
     },
     afterRender(id){
         const formEdit = document.querySelector('#form-edit');
-        formEdit.addEventListener('submit' ,(e) => {
+        const imgPost = document.querySelector("#image");
+        const imgPreview = document.querySelector("#previewImage");
+        let imgUploadedLink = "";
+        imgPost.addEventListener("change", () => {
+          imgPreview.src = URL.createObjectURL(imgPost.files[0]);
+        });
+        formEdit.addEventListener('submit' ,async (e) => {
           e.preventDefault();
+          const file = imgPost.files[0];
+          if(file){
+            const formData = new FormData();
+            formData.append("file",file);
+            formData.append("upload_preset", "hjpfbmrh");
+            const { data } = await axios({
+              url: "https://api.cloudinary.com/v1_1/builong/image/upload",
+              method: "POST",
+              headers: {
+                "Content-Type": "application/x-www-formendcoded",
+              },
+              data: formData,
+            });
+            imgUploadedLink = data.url;
+          }
           update({
             id, title: document.querySelector('#title').value,
-                des: document.querySelector('#des').value,
+                img: imgUploadedLink ? imgUploadedLink : imgPreview.src,
+                newprice: document.querySelector('#new').value,
+                oldprice: document.querySelector('#old').value
                 
           })
-            .then(() => document.location.href="/listPost")
+            .then(() => document.location.href="/listproducts")
             .catch((error) => console.log(error))
             
         })
