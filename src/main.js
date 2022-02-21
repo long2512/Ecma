@@ -13,11 +13,12 @@ import listPost from "./pages/listPost";
 import postPage from "./pages/post";
 import AddPosts from "./component/addPosts";
 import EditPost from "./component/editPost";
+import CartPage from "./pages/cartPage";
 
 
 const router = new Navigo("/",{linksSelector:"a"});
 const render = async (content,id) =>{
-    document.querySelector("#app").innerHTML=await content.print(id);
+    document.querySelector("#app").innerHTML= await content.print(id);
     if(content.afterRender){
         content.afterRender(id);
     }
@@ -35,6 +36,9 @@ router.on({
     },
     "/login": () =>{
         render(Login);
+    },
+    "/cart": () =>{
+        render(CartPage);
     },
     "/register": () =>{
         render(Register);

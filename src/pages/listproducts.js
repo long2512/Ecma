@@ -1,5 +1,5 @@
 import { getAll, remove } from "../api/products";
-import { reRender } from "../utils";
+import { reRender } from "../utils/reRender";
 
 const listProduct = {
     async print(){

@@ -107,7 +107,7 @@ const AddPosts = {
               headers: {
                 "Content-Type": "application/x-www-formendcoded",
               },
-              data: formData,
+              data: formData, 
             })
             add({
               title: document.querySelector("#title-post").value,

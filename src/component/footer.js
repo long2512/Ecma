@@ -20,7 +20,7 @@ export const footer = {
           <div class="col ml-32 mt-10">
               <h3 class="font-mono text-2xl font-bold mb-5 text-white">Useful Links</h3>
               <li class="list-none mb-2 text-white">About Us</li>
-              <li class="list-none mb-2 text-white">About Us</li>
+              <li class="list-none mb-2 text-white"></li>
               <li class="list-none mb-2 text-white">About Us</li>
               <li class="list-none mb-2 text-white">About Us</li>
           </div>
