@@ -18,7 +18,7 @@ const DetailNewPage = {
             <h4 class="text-2xl font-sans font-semibold mt-2 mb-2 ml-20">${data.title}</h4>
             <div class="flex">
                 <div class="flex gap-14">
-                <input type="number" id="inputValue" value="1">
+                <input type="number" id="inputValue" value="1" class="border border-gray-900">
                     <p class="text-2xl text-red-600 font-bold ml-20">${data.newprice}</p>
                     <p class="text-2xl line-through">${data.oldprice}</p>
                 </div>

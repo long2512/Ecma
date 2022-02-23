@@ -1,7 +1,7 @@
 
 import footer from "../component/footer";
 import header from "../component/header";
-import { minusCart, plusCart, removeCart } from "../utils/cart";
+import { minusCart, numberFomat, plusCart, removeCart } from "../utils/cart";
 import { reRender } from "../utils/reRender";
 
 
@@ -31,7 +31,7 @@ const CartPage = {
                         <td class="p-3 cursor-pointer"><button data-id="${item.id}" class="btn plus">+</button></td>
                         <td class="p-3 font-bold">${item.quantity}</td>
                         <td class="p-3 cursor-pointer"><button data-id="${item.id}" class="btn minus">-</button></td>
-                        <td class="p-3 font-bold">${item.quantity*item.newprice} đ</td>
+                        <td class="p-3 font-bold">${numberFomat.format(item.quantity*item.newprice)} đ</td>
                         <td class=" cursor-pointer"><button data-id="${item.id}" class="btn remove">Xóa</button></td>
                      </tr>`).join("")}
         </tbody>
@@ -42,7 +42,7 @@ const CartPage = {
             </tr>
         </tfoot>
     </table>
-    ${ footer.print()}`;
+    `;
 
     },afterRender(){
         header.afterRender();
@@ -53,7 +53,7 @@ const CartPage = {
             const cart = JSON.parse(localStorage.getItem('cart'));
             cart.forEach(item =>{
                 total +=item.newprice*item.quantity;
-                totalPrice.innerHTML= total;
+                totalPrice.innerHTML= numberFomat.format(total);
             })
             
         }

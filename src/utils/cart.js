@@ -42,4 +42,4 @@ export const plusCart = (id, next) => {
     localStorage.setItem("cart", JSON.stringify(cart));
     next();
   };
-  
+  export const numberFomat = new Intl.NumberFormat("en");
