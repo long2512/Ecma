@@ -6,40 +6,40 @@ if(localStorage.getItem('cart')){
     cart = JSON.parse(localStorage.getItem('cart'))
 }
 
-export const addToCart = (newProduct,callBack) => {
-    const exitsProducts = cart.find(product=>product.id === newProduct.id)
+export const addToCart = (newProduct,next) => {
+    const exitsProducts = cart.find(product=>product.id == newProduct.id)
     if(!exitsProducts){
         cart.push(newProduct);
     }else{
         exitsProducts.quantity++;
     }
     localStorage.setItem("cart",JSON.stringify(cart));
-    callBack();
+    next();
 }
 
-export const plusCart = (id, callBack) => {
-    cart.find((pro) => pro.id === id).quantity++;
+export const plusCart = (id, next) => {
+    cart.find((pro) => pro.id == id).quantity++;
     localStorage.setItem("cart", JSON.stringify(cart));
-    callBack();
+    next();
   };
   
-  export const minusCart = (id, callBack) => {
-    const minusCart = cart.find((pro) => pro.id === id);
+  export const minusCart = (id, next) => {
+    const minusCart = cart.find((pro) => pro.id == id);
     minusCart.quantity--;
     if (minusCart.quantity < 1) {
       
-      removeCart(id, callBack);
+      removeCart(id, next);
     }
     localStorage.setItem("cart", JSON.stringify(cart));
-    callBack();
+    next();
   };
   
-  export const removeCart = (id, callBack) => {
+  export const removeCart = (id, next) => {
     const confirm = window.confirm("Bạn có muốn xóa sp không!");
     if (confirm) {
-      cart = cart.filter((item) => item.id !== id);
+      cart = cart.filter(item => item.id != id);
     }
     localStorage.setItem("cart", JSON.stringify(cart));
-    callBack();
+    next();
   };
   
