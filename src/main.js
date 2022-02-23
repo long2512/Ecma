@@ -69,7 +69,7 @@ router.on({
         // const { id } = data;
         render(EditPost , data.data.id);
     },
-    "/news/:id": ( data ) => {
+    "/products/:id": ( data ) => {
         // const { id } = data;
         render(DetailNewPage,data.data.id);
     },

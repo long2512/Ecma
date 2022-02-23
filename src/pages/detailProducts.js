@@ -4,7 +4,8 @@ import footer from "../component/footer";
 import header from "../component/header";
 import { get } from "../api/products";
 import { addToCart } from "../utils/cart";
-import { reRender } from "../utils/reRender";
+
+
 
 
 const DetailNewPage = {
@@ -35,7 +36,8 @@ const DetailNewPage = {
             const { data } = await get(id);
             addToCart({ ...data, quantity: inputVale ? +inputVale.value : 1 },
                 () => { 
-                    reRender(DetailNewPage, '#app') 
+                    // reRender(DetailNewPage, '#app') 
+                    window.alert('Theem thanh cong');
                 });
         })
     }

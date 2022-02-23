@@ -11,7 +11,7 @@ const NewsList = {
         <div class="row grid grid-cols-4 mx-48 mt-10 gap-12">
             ${data.map((post) =>`
             <div class="col">
-                <a href="/news/${post.id}"><img src="${post.img}" class="mx-auto hover:scale-[1.1]" alt=""></a>
+                <a href="/products/${post.id}"><img src="${post.img}" class="mx-auto hover:scale-[1.1]" alt=""></a>
                 <h3 class="text-center text-2xl font-sans font-semibold mt-2 mb-2">${post.title}</h3>
                 <div class="flex mb-2">
                     <span class="text-xl text-red-600 mr-3 ml-32">${post.newprice}</span>

@@ -1,3 +1,5 @@
+
+
 let cart =[];
 
 if(localStorage.getItem('cart')){
@@ -25,10 +27,7 @@ export const plusCart = (id, callBack) => {
     const minusCart = cart.find((pro) => pro.id === id);
     minusCart.quantity--;
     if (minusCart.quantity < 1) {
-      // const confirm = window.confirm('Bạn có muốn xóa sản phẩm này không?');
-      // if (confirm) {
-      //   cart = cart.filter((item) => item !== id);
-      // }
+      
       removeCart(id, callBack);
     }
     localStorage.setItem("cart", JSON.stringify(cart));
@@ -43,3 +42,4 @@ export const plusCart = (id, callBack) => {
     localStorage.setItem("cart", JSON.stringify(cart));
     callBack();
   };
+  
