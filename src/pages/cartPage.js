@@ -32,7 +32,7 @@ const CartPage = {
                         <td class="p-3 font-bold">${item.quantity}</td>
                         <td class="p-3 cursor-pointer"><button data-id="${item.id}" class="btn minus">-</button></td>
                         <td class="p-3 font-bold">${numberFomat.format(item.quantity*item.newprice)} đ</td>
-                        <td class=" cursor-pointer"><button data-id="${item.id}" class="btn remove">Xóa</button></td>
+                        <td class="cursor-pointer"><button data-id="${item.id}" class="btn remove font-bold">Xóa</button></td>
                      </tr>`).join("")}
         </tbody>
         <tfoot>

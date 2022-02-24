@@ -18,18 +18,18 @@ export const footer = {
 
           </div>
           <div class="col ml-32 mt-10">
-              <h3 class="font-mono text-2xl font-bold mb-5 text-white">Useful Links</h3>
+              <h3 class="font-sans text-2xl font-bold mb-5 text-white">Useful Links</h3>
               <li class="list-none mb-2 text-white">About Us</li>
-              <li class="list-none mb-2 text-white"></li>
-              <li class="list-none mb-2 text-white">About Us</li>
-              <li class="list-none mb-2 text-white">About Us</li>
+              <li class="list-none mb-2 text-white">FAQ</li>
+              <li class="list-none mb-2 text-white">Location</li>
+              <li class="list-none mb-2 text-white">Contact</li>
           </div>
           <div class="col col ml-24 mt-10">
             <h3 class="font-mono text-2xl font-bold mb-5 text-white">My Account</h3>
-              <li class="list-none mb-2 text-white">About Us</li>
-              <li class="list-none mb-2 text-white">About Us</li>
-              <li class="list-none mb-2 text-white">About Us</li>
-              <li class="list-none mb-2 text-white">About Us</li>
+              <li class="list-none mb-2 text-white">Disacount</li>
+              <li class="list-none mb-2 text-white">Returns</li>
+              <li class="list-none mb-2 text-white">Oder Histori</li>
+              <li class="list-none mb-2 text-white">Oder Trackings</li>
 
           </div>
           <div class="col mt-10">

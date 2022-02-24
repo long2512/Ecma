@@ -10,24 +10,24 @@ const header = {
         <div>
           ${localStorage.getItem('user') ? `
           <ul class="flex pt-5" id="menu">
-            <li class="pt-8 text-2xl pl-3 font-mono font-bold pr-10 hover:text-red-500"><a href="/">Home</a></li>
-            <li class="pt-8 text-2xl pl-3 font-mono font-bold pr-10 hover:text-red-500"><a href="/about">About</a></li>
-            <li class="pt-8 text-2xl pl-3 font-mono font-bold pr-10 hover:text-red-500"><a href="/post">Post</a></li>
-            <li class="pt-8 text-2xl pl-3 font-mono font-bold pr-10 hover:text-red-500">Xin chào :<span id="username"></span></li>
-            <li class="pt-8 text-2xl pl-3 font-mono font-bold pr-10 hover:text-red-500" id="logout" class="cursor-pointer">Logout</li>
+            <li class="pt-8 text-2xl pl-3 font-sans font-bold pr-10 hover:text-red-500"><a href="/">Home</a></li>
+            <li class="pt-8 text-2xl pl-3 font-sans font-bold pr-10 hover:text-red-500"><a href="/about">About</a></li>
+            <li class="pt-8 text-2xl pl-3 font-sans font-bold pr-10 hover:text-red-500"><a href="/post">Post</a></li>
+            <li class="pt-8 text-2xl pl-3 font-sans font-bold pr-10 hover:text-red-500">Xin chào :<span id="username"></span></li>
+            <li class="pt-8 text-2xl pl-3 font-sans font-bold pr-10 hover:text-red-500" id="logout" class="cursor-pointer">Logout</li>
           </ul>`: `<ul class="flex pt-5">
-          <li class="pt-8 text-2xl pl-3 font-mono font-bold pr-10 hover:text-red-500"><a href="/">Home</a></li>
-          <li class="pt-8 text-2xl pl-3 font-mono font-bold pr-10 hover:text-red-500"><a href="/about">About</a></li>
-          <li class="pt-8 text-2xl pl-3 font-mono font-bold pr-10 hover:text-red-500"><a href="/post">Post</a></li>
-          <li class="pt-8 text-2xl pl-3 font-mono font-bold pr-10 hover:text-red-500"><a href="/about">Shop</a></li>
-          <li class="pt-8 text-2xl pl-3 font-mono font-bold pr-10 hover:text-red-500"><a href="/post">Contact</a></li>
+          <li class="pt-8 text-2xl pl-3 font-sans font-bold pr-10 hover:text-red-500"><a href="/">Home</a></li>
+          <li class="pt-8 text-2xl pl-3 font-sans font-bold pr-10 hover:text-red-500"><a href="/about">About</a></li>
+          <li class="pt-8 text-2xl pl-3 font-sans font-bold pr-10 hover:text-red-500"><a href="/post">Post</a></li>
+          <li class="pt-8 text-2xl pl-3 font-sans font-bold pr-10 hover:text-red-500"><a href="/about">Shop</a></li>
+          <li class="pt-8 text-2xl pl-3 font-sans font-bold pr-10 hover:text-red-500"><a href="/post">Contact</a></li>
         </ul>`}
         </div>
         <div id="sigined">
           
         </div>
         <div class="cart">
-          <a href="/cart" class="mt-2 text-2xl pl-3 font-mono font-bold pr-10 hover:text-red-500"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <a href="/cart" class="mt-2 text-2xl pl-3 font-sans font-bold pr-10 hover:text-red-500"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
         </svg></a>
         </div>
